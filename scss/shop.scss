@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box; 
+}
+
+header{
+	height: 60px;
+	border-bottom: 2px solid lightgrey;
+
+	.logo{
+		h2{
+			margin-top: 9px;
+			a{
+				font-size: 3.5rem;
+				font-family: 'Nova Script', cursive;
+				color: grey;
+				text-decoration: none;
+			}
+		}
+	}
+
+	nav{
+
+		#menuIcon{
+			display: none;
+			font-size: 3rem;
+			height: 100%;
+
+			&:hover{
+				color: #9F9F9F;
+			}
+		}
+
+		.menu{
+			list-style: none;
+			z-index: 99999;
+
+			li{
+				a{
+					margin-top: 16px;
+					display: inline;
+					float: right;
+					margin-left: 20px;
+					font-size: 2rem;
+					color: grey;
+					text-decoration: none;
+
+					&:hover{
+						color: lightgrey;
+					}
+				}
+
+				.active{
+					border-bottom: 3px solid grey;
+				}
+			}
+		}
+	}
+}
+
+.products{
+	.shirt{
+		img{
+			padding: 20px;
+			width: 100%;
+			height: auto;
+
+			&:hover{
+				filter: opacity(0.7);
+			}
+		}
+	}
+
+	h4{
+		display: inline-block;
+		padding: 5px 25px;
+	}
+
+	#price{
+		float: right;
+	}
+}
+
+.cart{
+	position: fixed;
+	top: 50px;
+	right: 0;
+	margin-right: -275px;
+	width: 270px;
+	padding: 10px;
+	height: auto;
+	background-color: white;
+	border: 3px solid grey;
+	z-index: 50000;
+
+	#cartIcon{
+		position:absolute;
+		top: -3px;
+		left: -60px;
+		padding: 10px;
+		background-color: grey;
+		color: white;
+
+		i{
+			margin-right: 4px;
+		}
+	}
+
+	.cartheader{
+		display: block;
+		color: grey;
+		width: 100%;
+		padding-bottom: 5px;
+		border-bottom: 2px solid grey;
+
+		#cart{
+			font-size: 1rem;
+			line-height: 0.5rem;
+			display: inline-block;
+		}
+	}
+
+	#items{
+		display: inline-block;
+		color: grey;
+		width: 100%;
+		margin: 0;
+
+		.item{
+			display: block;
+			line-height: 0;
+
+			#remove{
+				display: inline-block;
+				font-weight: 700;
+				color: red;
+				padding: 6px 3px;
+				padding-bottom: 7px;
+				border: 2px solid red;
+				margin-right: 10px;
+				&:hover{
+					background-color: red;
+					color: white;
+				}
+			}
+
+			.shirtName{
+				display: inline-block;
+				text-align: left;
+			}
+
+			.shirtPrice{
+				display: inline-block;
+				float: right;
+			}
+
+			.time{
+				display: block;
+				text-align: right;
+				color: grey;
+				font-size: 0.8rem;
+				clear: both;
+			}
+		}
+	}
+
+	.numbers{
+		margin-top: -15px;
+		line-height: 1.2em;
+		width: 100%;
+		color: grey;
+		text-align: right;
+		display: block;
+
+		#taxBox{
+			margin-bottom: -15px;
+			margin-top: -5px;
+		}
+
+		#totalBox{
+			display: inline-block;
+			float: right;
+			width: 100%;
+			border-top: 2px solid grey;
+			padding-top: 5px;
+		}
+	}
+}
+
+@media(max-width: 768px){
+	header{
+		nav{
+			#menuIcon{
+				display: inline-block;
+				float: right;
+				padding-right: 15px;
+				padding-left: 80px;
+				padding-top: 8px;
+				padding-bottom: 8px;
+			}
+
+			.menu{
+				display: none;
+				position: absolute;
+				padding: 20px;
+				background: #fff;
+				border: 5px solid #444;
+				right: 0px;
+				top: 60px;
+				width: 50%;
+
+				li{
+					a{
+						text-align: center;
+						width: 100%;
+						padding: 10px 0;
+						margin: 0;
+					}
+				}
+			}
+
+			&:hover{
+				.menu{
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.animateCartOpen{
+	animation: cartSlideOpen 0.3s linear 1;
+	margin-right:0px;
+	// animation: cartSlideBack 0.5s linear 1;
+}
+
+.animateCartClose{
+	animation: cartSlideClose 0.3s linear 1;
+}
+
+@keyframes cartSlideOpen{
+	0%{margin-right: -270px}
+	100%{margin-right: 0px}
+}
+
+@keyframes cartSlideClose{
+	0%{margin-right: 0px}
+	100%{margin-right: -270px}
+}
+
+@keyframes dropdownanimation{
+	0%{opacity: 0}
+	0%{margin-top: -100px}
+	100%{opacity: 1}
+	100%{margin-top: 0}
+}
